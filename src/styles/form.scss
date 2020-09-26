@@ -1,0 +1,27 @@
+$column: column;
+$row: row;
+
+@mixin form($direction) {
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: $direction;
+    input {
+      width: fit-content;
+      align-self: center;
+      background-color: #33b2e2;
+    }
+    label {
+      display: flex;
+      justify-content: center;
+      flex-direction: $direction;
+    }
+  }
+}
+
+.formColumn {
+  @include form($column);
+}
+.formRow {
+  @include form($row);
+}

@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import './styles/style.scss';
+
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { NoCityError } from './components/NoCityError/NoCityError';
+import { WeatherRes } from './Types/WeatherResponse';
+import { Weather } from './Views/Weather';
+import { Welcome } from './Views/Welcome';
 
 function App() {
+  const [showWeatherSection, setShowWeatherSection] = useState<boolean>(false);
+  const [weatherResponse, setWeatherResponse] = useState<WeatherRes>();
+  const [noCityError, setNoCityError] = useState<boolean>(false);
+  const handleWeatherRes = useCallback(
+    (res: WeatherRes) => {
+      setWeatherResponse(res);
+      setShowWeatherSection(true);
+    },
+    [weatherResponse, showWeatherSection]
+  );
+  const handleNoCity = useCallback(
+    (noData: boolean) => {
+      setNoCityError(noData);
+    },
+    [noCityError]
+  );
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showWeatherSection ? (
+        <Weather
+          weatherRes={weatherResponse}
+          handleResponse={handleWeatherRes}
+          handleNoResponse={handleNoCity}
+        />
+      ) : (
+        <Welcome
+          handleResponse={handleWeatherRes}
+          handleNoResponse={handleNoCity}
+        />
+      )}
+      {noCityError && <NoCityError handleClick={handleNoCity} />}
     </div>
   );
 }
