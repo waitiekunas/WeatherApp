@@ -21,18 +21,39 @@ export const WeatherMainWrapper: React.FC<Props> = ({
   const getWeek = (days?: Day[]): Day[] => {
     let week: Day[] = [];
     if (weather && days)
-      for (let i = 0; i <= days.length; i += 8) {
-        week.push(days[i]);
-      }
+      // for (let i = 0; i <= days.length; i ++) {
+      //   week.push(days[i]);
+      // }
+      days.forEach((day, index) => {
+        if (week.length === 0) {
+          week.push(day);
+        }
+        if (areNotDaysAndTimes(week[week.length - 1].dt_txt, day.dt_txt)) {
+          week.push(day);
+        }
+        if (week.length === 5) {
+          week.push(days[days.length - 1]);
+        }
+      });
     return week;
   };
+  const areNotDaysAndTimes = (includedDay: string, newDay: string): boolean => {
+    const includedDate = new Date(includedDay);
+    const newDate = new Date(newDay);
+    const includedDayNo = includedDate.getDay();
+    const newDateDayNo = newDate.getDay();
+    const includedHour = includedDate.getHours();
+    const newDateHour = newDate.getHours();
+
+    return includedDayNo !== newDateDayNo && includedHour === newDateHour;
+  };
   return (
-    <div className="FlexColumn">
+    <div className="FlexColumn margin16px widthFitContent">
       <WeatherTableHeader city={weather?.city} handleSubmit={handleSubmit} />
-      <div className="FlexRow">
+      <div className="spaceBetween">
         <CurrentDayInfo weather={weather?.list[0]} />
-        <div className="weekContainer">
-          <div className="week">
+        <div className="margin16px">
+          <div className="flex">
             {filteredWeek?.map((day, index) => (
               <WeekDay key={index} weather={day} />
             ))}

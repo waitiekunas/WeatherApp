@@ -25,8 +25,8 @@ export const Welcome: React.FC<Props> = (props) => {
     [city]
   );
   return (
-    <div>
-      <Form handleSubmit={handleCityInput} classNames="formColumn CenterView" />
+    <div className="centerScreen">
+      <Form handleSubmit={handleCityInput} classNames="formColumn" />
     </div>
   );
 };

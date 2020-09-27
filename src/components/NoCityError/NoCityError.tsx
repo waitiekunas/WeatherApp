@@ -5,8 +5,8 @@ type Props = {
 };
 export const NoCityError: React.FC<Props> = (props) => {
   return (
-    <div>
-      <div>
+    <div className="fullScreenCover">
+      <div className="centerScreen">
         <div>
           <h1>No city found</h1>
         </div>

@@ -1,0 +1,41 @@
+.margin16px {
+  margin: 16px;
+}
+.flex {
+  display: flex;
+}
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+.widthFitContent {
+  width: fit-content;
+}
+.justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+.App {
+  text-align: center;
+}
+
+.CenterView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vw;
+}
+.FlexColumn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.SpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+.centerScreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

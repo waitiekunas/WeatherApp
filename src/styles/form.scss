@@ -6,15 +6,24 @@ $row: row;
     display: flex;
     justify-content: center;
     flex-direction: $direction;
+    label {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      input {
+        background-color: whitesmoke;
+        cursor: text;
+        border-radius: 0%;
+      }
+    }
     input {
       width: fit-content;
       align-self: center;
       background-color: #33b2e2;
-    }
-    label {
-      display: flex;
-      justify-content: center;
-      flex-direction: $direction;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 30%;
+      border: none;
     }
   }
 }

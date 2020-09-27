@@ -21,14 +21,20 @@ export const Form: React.FC<Props> = (props) => {
     <div className={props.classNames}>
       <form onSubmit={(e) => props.handleSubmit(e, inputValue)}>
         <label>
-          Name:
+          <p>Please enter city name:</p>
           <input
+            className="margin16px"
             type="text"
             value={inputValue}
             onChange={(e) => handleInput(e)}
           />
         </label>
-        <input type="submit" value="Submit" disabled={disabled} />
+        <input
+          className="margin16px"
+          type="submit"
+          value="Submit"
+          disabled={disabled}
+        />
       </form>
     </div>
   );

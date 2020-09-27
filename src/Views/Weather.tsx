@@ -31,7 +31,7 @@ export const Weather: React.FC<Props> = (props) => {
     [city]
   );
   return (
-    <div>
+    <div className="justifyCenter">
       <WeatherMainWrapper weather={weather} handleSubmit={handleCityInput} />
     </div>
   );
