@@ -1,6 +1,14 @@
 $column: column;
 $row: row;
-
+.button {
+  width: fit-content;
+  align-self: center;
+  background-color: #33b2e2;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: none;
+}
 @mixin form($direction) {
   form {
     display: flex;
@@ -16,20 +24,12 @@ $row: row;
         border-radius: 0%;
       }
     }
-    input {
-      width: fit-content;
-      align-self: center;
-      background-color: #33b2e2;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 30%;
-      border: none;
-    }
   }
 }
 
 .formColumn {
   @include form($column);
+  width: fit-content;
 }
 .formRow {
   @include form($row);

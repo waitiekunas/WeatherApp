@@ -30,7 +30,7 @@ export const Form: React.FC<Props> = (props) => {
           />
         </label>
         <input
-          className="margin16px"
+          className="margin16px button"
           type="submit"
           value="Submit"
           disabled={disabled}

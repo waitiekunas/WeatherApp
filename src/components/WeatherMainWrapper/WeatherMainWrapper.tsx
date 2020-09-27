@@ -14,16 +14,16 @@ export const WeatherMainWrapper: React.FC<Props> = ({
   handleSubmit,
 }) => {
   const [filteredWeek, setFilteredWeek] = useState<Day[]>();
+
   useEffect(() => {
-    let week = getWeek(weather?.list);
+    const week = getWeek(weather?.list);
+
     setFilteredWeek(week);
   }, [weather]);
+
   const getWeek = (days?: Day[]): Day[] => {
     let week: Day[] = [];
     if (weather && days)
-      // for (let i = 0; i <= days.length; i ++) {
-      //   week.push(days[i]);
-      // }
       days.forEach((day, index) => {
         if (week.length === 0) {
           week.push(day);
@@ -37,6 +37,7 @@ export const WeatherMainWrapper: React.FC<Props> = ({
       });
     return week;
   };
+
   const areNotDaysAndTimes = (includedDay: string, newDay: string): boolean => {
     const includedDate = new Date(includedDay);
     const newDate = new Date(newDay);
@@ -47,6 +48,7 @@ export const WeatherMainWrapper: React.FC<Props> = ({
 
     return includedDayNo !== newDateDayNo && includedHour === newDateHour;
   };
+
   return (
     <div className="FlexColumn margin16px widthFitContent">
       <WeatherTableHeader city={weather?.city} handleSubmit={handleSubmit} />

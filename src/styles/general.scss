@@ -19,12 +19,6 @@
   text-align: center;
 }
 
-.CenterView {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vw;
-}
 .FlexColumn {
   display: flex;
   justify-content: center;
@@ -36,6 +30,12 @@
 }
 .centerScreen {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 25%;
+  width: 100%;
+  justify-content: center;
+  display: grid;
+}
+.mapWidth {
+  width: 50%;
+  height: 50%;
 }

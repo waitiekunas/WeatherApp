@@ -8,7 +8,7 @@ type Props = {
   handleSubmit: (e: FormEvent<HTMLFormElement>, input: string) => any;
 };
 export const WeatherTableHeader: React.FC<Props> = (props) => (
-  <div className="SpaceBetween">
+  <div className="spaceBetween">
     <div>
       <p>{`${props.city?.name}, ${props.city?.country}`}</p>
     </div>
